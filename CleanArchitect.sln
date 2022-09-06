@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitect.Domain", "CleanArchitect.Domain\CleanArchitect.Domain.csproj", "{52BCA578-6E7E-4287-887D-92EB0293000D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitect.Domain", "CleanArchitect.Domain\CleanArchitect.Domain.csproj", "{52BCA578-6E7E-4287-887D-92EB0293000D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitect.Application", "CleanArchitect.Application\CleanArchitect.Application.csproj", "{AF4E1EB7-845C-461C-989B-1A56F5971EA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitect.Application", "CleanArchitect.Application\CleanArchitect.Application.csproj", "{AF4E1EB7-845C-461C-989B-1A56F5971EA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitect.Infrastructure", "CleanArchitect.Infrastructure\CleanArchitect.Infrastructure.csproj", "{B650F0E6-F27F-4B4D-887D-C10C30B4FCE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitect.Infrastructure", "CleanArchitect.Infrastructure\CleanArchitect.Infrastructure.csproj", "{B650F0E6-F27F-4B4D-887D-C10C30B4FCE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitect", "CleanArchitect\CleanArchitect.csproj", "{E537C491-111E-47A8-B7CD-E9E04C9F36F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitect", "CleanArchitect\CleanArchitect.csproj", "{E537C491-111E-47A8-B7CD-E9E04C9F36F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "SharedKernel\SharedKernel.csproj", "{CE6D5006-3956-440C-BBBB-270B8E92F839}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E537C491-111E-47A8-B7CD-E9E04C9F36F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E537C491-111E-47A8-B7CD-E9E04C9F36F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E537C491-111E-47A8-B7CD-E9E04C9F36F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE6D5006-3956-440C-BBBB-270B8E92F839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE6D5006-3956-440C-BBBB-270B8E92F839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE6D5006-3956-440C-BBBB-270B8E92F839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE6D5006-3956-440C-BBBB-270B8E92F839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
