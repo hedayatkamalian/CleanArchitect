@@ -7,7 +7,7 @@ using SharedKernel.WebApi;
 namespace CleanArchitect.UseCases.Products.Add
 {
     [Route("[controller]")]
-    [ApiController]
+    [Controller]
     public class ProductsController : CustomController
     {
         private readonly IMediator _mediator;
@@ -19,6 +19,7 @@ namespace CleanArchitect.UseCases.Products.Add
 
         [HttpPost]
         [ProducesResponseType(typeof(Uri), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
         public async Task<IActionResult> AddProduct([FromBody] ProductAddRequest request, CancellationToken cancellationToken)
         {
             var command = new ProductAddCommand(request.Name, request.Price);

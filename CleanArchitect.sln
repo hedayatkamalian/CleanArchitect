@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitect.Infrastructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitect", "CleanArchitect\CleanArchitect.csproj", "{E537C491-111E-47A8-B7CD-E9E04C9F36F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "SharedKernel\SharedKernel.csproj", "{CE6D5006-3956-440C-BBBB-270B8E92F839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedKernel", "SharedKernel\SharedKernel.csproj", "{CE6D5006-3956-440C-BBBB-270B8E92F839}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitect.Tests", "CleanArchitect.Tests\CleanArchitect.Tests.csproj", "{D3D2EE05-257C-4837-8D1A-67768CD3089A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{CE6D5006-3956-440C-BBBB-270B8E92F839}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE6D5006-3956-440C-BBBB-270B8E92F839}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE6D5006-3956-440C-BBBB-270B8E92F839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3D2EE05-257C-4837-8D1A-67768CD3089A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3D2EE05-257C-4837-8D1A-67768CD3089A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3D2EE05-257C-4837-8D1A-67768CD3089A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3D2EE05-257C-4837-8D1A-67768CD3089A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

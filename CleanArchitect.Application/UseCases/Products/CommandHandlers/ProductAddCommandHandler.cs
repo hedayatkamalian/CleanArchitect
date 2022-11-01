@@ -20,14 +20,18 @@ public class ProductAddCommandHandler : IRequestHandler<ProductAddCommand, Servi
         _applicationErrors = applicationErrors.Value;
     }
 
-    public async Task<ServiceCommandResult> Handle(ProductAddCommand request, CancellationToken cancellationToken)
+    public async Task<ServiceCommandResult> Handle(ProductAddCommand command, CancellationToken cancellationToken)
     {
+        if (command.Price <= 0 || string.IsNullOrEmpty(command.Name.Trim()))
+        {
+            return new ServiceCommandResult(CommandErrorType.Validation, "");
+        }
 
         var product = new Product
         {
             Id = new IdGen.IdGenerator(0).CreateId(),
-            Name = request.Name,
-            Price = request.Price,
+            Name = command.Name,
+            Price = command.Price,
         };
 
         await _unitOfWork.ProductRepository.AddAsync(product, cancellationToken);

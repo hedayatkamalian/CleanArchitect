@@ -19,7 +19,7 @@ namespace CleanArchitect.UseCases.Products.Delete
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Edit([FromRoute] long id)
+        public async Task<IActionResult> Delete([FromRoute] long id)
         {
             var command = new ProductDeleteCommand(id);
             var result = await _mediatR.Send(command);
