@@ -9,9 +9,9 @@ public class OrderConfig : IEntityTypeConfiguration<Order>
     public void Configure(EntityTypeBuilder<Order> builder)
     {
         builder.HasKey(p => p.Id);
+        builder.HasNoKey().Property(p => p.Address);
 
         builder.OwnsOne(p => p.Address);
-        builder.Property(p => p.Address).IsRequired();
 
         builder.Ignore(p => p.TotalPrice);
 

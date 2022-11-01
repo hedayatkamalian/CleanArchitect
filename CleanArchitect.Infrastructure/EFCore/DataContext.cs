@@ -15,5 +15,11 @@ namespace CleanArchitect.Infrastructure.EFCore
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Product> Products { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Order>().OwnsOne(p => p.Address);
+        }
     }
 }
