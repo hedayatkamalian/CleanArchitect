@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CleanArchitect.Application.Dtos.Customers;
 using CleanArchitect.Application.Dtos.Products;
 using CleanArchitect.Domain.Entities;
 
@@ -9,5 +10,6 @@ public class MapperProfile : Profile
     public MapperProfile()
     {
         CreateMap<Product, ProductDto>();
+        CreateMap<Customer, CustomerDto>();
     }
 }

@@ -7,6 +7,7 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly DataContext _context;
     private IProductRepository _productRepository;
+    private ICustomerRepository _customerRepository;
 
     public UnitOfWork(DataContext context)
     {
@@ -14,6 +15,7 @@ public class UnitOfWork : IUnitOfWork
 
     }
     public IProductRepository ProductRepository => _productRepository ??= new ProductRepository(_context);
+    public ICustomerRepository CustomerRepository => _customerRepository ??= new CustomerRepository(_context);
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
     {
