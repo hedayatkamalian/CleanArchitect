@@ -17,7 +17,7 @@ namespace CleanArchitect.UseCases.Products.Edit
             _mediatR = mediatR;
         }
 
-        [HttpPost("{id}")]
+        [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Edit([FromRoute] long id, [FromBody] ProductEditRequest request)

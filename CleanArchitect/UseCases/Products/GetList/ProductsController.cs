@@ -21,7 +21,7 @@ namespace CleanArchitect.UseCases.Products.GetList
         [ProducesResponseType(typeof(IList<ProductDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
-            var query = new ProductGetListQuery();
+            var query = new ProductGetAllQuery();
             var result = await _mediatR.Send(query, cancellationToken);
             return FromServiceResult(result);
 

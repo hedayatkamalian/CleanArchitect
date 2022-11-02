@@ -42,7 +42,7 @@ namespace CleanArchitect.Tests.WebControllers
         }
 
         [Fact]
-        public async Task Add_Shoud_Return_UnsupportableEntity_When_CommandResult_Has_Validation_Error()
+        public async Task Add_Shoud_Return_UnprocessableEntity_When_CommandResult_Has_Validation_Error()
         {
             var mediatorMock = new Mock<IMediator>();
             var serviceResult = new ServiceCommandResult(CommandErrorType.Validation);
@@ -155,7 +155,7 @@ namespace CleanArchitect.Tests.WebControllers
 
 
             var mediatorMock = new Mock<IMediator>();
-            mediatorMock.Setup(m => m.Send(It.IsAny<ProductGetListQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(queryListResult);
+            mediatorMock.Setup(m => m.Send(It.IsAny<ProductGetAllQuery>(), It.IsAny<CancellationToken>())).ReturnsAsync(queryListResult);
 
             var productsController = new UseCases.Products.GetList.ProductsController(mediatorMock.Object);
             var result = await productsController.GetAll(_fixtrue.Create<CancellationToken>());
