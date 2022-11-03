@@ -9,13 +9,13 @@ using SharedKernel.Domain.Abstraction;
 
 namespace CleanArchitect.Application.UseCases.Products.QueryHandlers;
 
-public class ProductGetListQueryHandler : IRequestHandler<ProductGetListQuery, ServiceQueryResult<IList<ProductDto>>>
+public class ProductGetAllQueryHandler : IRequestHandler<ProductGetAllQuery, ServiceQueryResult<IList<ProductDto>>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly ApplicationErrors _applicationErrros;
 
-    public ProductGetListQueryHandler(IUnitOfWork unitOfWork,
+    public ProductGetAllQueryHandler(IUnitOfWork unitOfWork,
         IOptions<ApplicationErrors> applicationErrros,
         IMapper mapper)
     {
@@ -24,7 +24,7 @@ public class ProductGetListQueryHandler : IRequestHandler<ProductGetListQuery, S
         _applicationErrros = applicationErrros.Value;
     }
 
-    public async Task<ServiceQueryResult<IList<ProductDto>>> Handle(ProductGetListQuery query, CancellationToken cancellationToken)
+    public async Task<ServiceQueryResult<IList<ProductDto>>> Handle(ProductGetAllQuery query, CancellationToken cancellationToken)
     {
         var products = await _unitOfWork.ProductRepository.GetAllAsync(cancellationToken);
         return new ServiceQueryResult<IList<ProductDto>>(_mapper.Map<IList<ProductDto>>(products));

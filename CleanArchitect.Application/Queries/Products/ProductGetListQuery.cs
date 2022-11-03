@@ -4,6 +4,6 @@ using SharedKernel.Domain.Abstraction;
 
 namespace CleanArchitect.Application.Queries.Products;
 
-public class ProductGetListQuery : IRequest<ServiceQueryResult<IList<ProductDto>>>
+public class ProductGetAllQuery : IRequest<ServiceQueryResult<IList<ProductDto>>>
 {
 }

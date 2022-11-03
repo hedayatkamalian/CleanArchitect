@@ -209,7 +209,7 @@ namespace CleanArchitect.Tests.Handlers.Products
         [Fact]
         public async Task GetList_Should_Return_IList_DTO_Anytime()
         {
-            var productGetListQuery = new ProductGetListQuery();
+            var productGetListQuery = new ProductGetAllQuery();
 
             var unitOfWorkMock = new Mock<IUnitOfWork>();
             unitOfWorkMock.Setup(m => m.ProductRepository.GetAllAsync(It.IsAny<CancellationToken>())).ReturnsAsync(_fixture.Create<List<Product>>());
@@ -217,7 +217,7 @@ namespace CleanArchitect.Tests.Handlers.Products
             var autoMapper = new Mock<IMapper>();
             autoMapper.Setup(m => m.Map<IList<ProductDto>>(It.IsAny<IList<Product>>())).Returns(_fixture.Create<List<ProductDto>>());
 
-            var productGetQueryHandler = new ProductGetListQueryHandler(unitOfWorkMock.Object, CommonMocks.ApplicationErros, autoMapper.Object);
+            var productGetQueryHandler = new ProductGetAllQueryHandler(unitOfWorkMock.Object, CommonMocks.ApplicationErros, autoMapper.Object);
 
             var result = await productGetQueryHandler.Handle(productGetListQuery, _fixture.Create<CancellationToken>());
 
