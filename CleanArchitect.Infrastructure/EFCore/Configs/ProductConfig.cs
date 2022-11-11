@@ -15,6 +15,6 @@ public class ProductConfig : IEntityTypeConfiguration<Product>
         builder.HasMany<OrderItem>()
             .WithOne()
             .HasForeignKey(p => p.ProductId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

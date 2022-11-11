@@ -9,7 +9,7 @@ public class OrderConfig : IEntityTypeConfiguration<Order>
     public void Configure(EntityTypeBuilder<Order> builder)
     {
         builder.HasKey(p => p.Id);
-        builder.HasNoKey().Property(p => p.Address);
+        builder.Property(p => p.CustomerId).IsRequired();
 
         builder.OwnsOne(p => p.Address);
 
@@ -20,10 +20,10 @@ public class OrderConfig : IEntityTypeConfiguration<Order>
             .HasForeignKey(p => p.OrderId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasOne<Customer>()
+        builder.HasOne<Customer>(p => p.Customer)
             .WithMany()
             .HasForeignKey(p => p.CustomerId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.NoAction);
 
     }
 }

@@ -27,6 +27,7 @@ namespace CleanArchitect.Tests.WebControllers
             mediatorMock.Setup(m => m.Send(It.IsAny<CustomerAddCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(serviceResult);
 
             var customerController = new UseCases.Customers.Add.CustomersController(mediatorMock.Object);
+            customerController.Url = GeneralFixtures.CreateMockUrlHelper().Object;
             var result = await customerController.Add(_fixture.Create<CustomersAddRequest>(), _fixture.Create<CancellationToken>());
 
             result.Should().NotBeNull();

@@ -9,16 +9,17 @@ public class OrderItemConfig : IEntityTypeConfiguration<OrderItem>
     public void Configure(EntityTypeBuilder<OrderItem> builder)
     {
         builder.HasKey(p => p.Id);
+        builder.Property(p => p.OrderId).IsRequired();
 
-        builder.HasOne<Order>()
+        builder.HasOne<Order>(p => p.Order)
             .WithMany()
             .HasForeignKey(p => p.OrderId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasOne<Product>()
+        builder.HasOne<Product>(p => p.Product)
             .WithMany()
             .HasForeignKey(p => p.ProductId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.Property(p => p.Price).IsRequired();
         builder.Property(p => p.Quantity).IsRequired();

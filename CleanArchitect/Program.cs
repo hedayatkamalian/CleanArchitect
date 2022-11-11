@@ -1,24 +1,30 @@
 using CleanArchitect;
+using CleanArchitect.Application.Options;
 using CleanArchitect.Domain.Repositories;
 using CleanArchitect.Infrastructure.EFCore;
 using CleanArchitect.Infrastructure.Repositories;
 using MediatR;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
 builder.Services.AddMediatR(typeof(Program));
-builder.Services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase("CleanArchitect"));
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
+var connection = new SqliteConnection("DataSource=:memory:;Foreign Keys=False");
+connection.Open();
+builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(connection));
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.Configure<ApplicationErrors>(builder.Configuration.GetSection(nameof(ApplicationErrors)));
 builder.Services.RegisterHandlers();
 
 

@@ -20,10 +20,10 @@ namespace CleanArchitect.UseCases.Products.Edit
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Edit([FromRoute] long id, [FromBody] ProductEditRequest request)
+        public async Task<IActionResult> Edit([FromRoute] long id, [FromBody] ProductEditRequest request, CancellationToken cancellationToken)
         {
             var command = new ProductEditCommand(id, request.Name, request.Price);
-            var result = await _mediatR.Send(command);
+            var result = await _mediatR.Send(command, cancellationToken);
             return FromServiceResult(result);
         }
     }

@@ -12,7 +12,7 @@ using FluentAssertions;
 using Moq;
 using SharedKernel.Domain.Abstraction;
 
-namespace CleanArchitect.Tests.Handlers.Products
+namespace CleanArchitect.Tests.Handlers
 {
     public class ProductsHandlersTests
     {

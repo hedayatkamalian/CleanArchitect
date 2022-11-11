@@ -13,7 +13,7 @@ public class CustomerConfig : IEntityTypeConfiguration<Customer>
         builder.HasMany<Order>()
             .WithOne()
             .HasForeignKey(p => p.CustomerId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.Property(p => p.FirstName).HasMaxLength(500).IsRequired();
         builder.Property(p => p.LastName).HasMaxLength(500).IsRequired();

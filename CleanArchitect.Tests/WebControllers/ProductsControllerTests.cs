@@ -68,7 +68,7 @@ namespace CleanArchitect.Tests.WebControllers
             mediatorMock.Setup(m => m.Send(It.IsAny<ProductDeleteCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(commandResutl);
 
             var productsController = new UseCases.Products.Delete.ProductsController(mediatorMock.Object);
-            var result = await productsController.Delete(_fixtrue.Create<long>());
+            var result = await productsController.Delete(_fixtrue.Create<long>(), _fixtrue.Create<CancellationToken>());
 
             result.Should().BeOfType<NotFoundResult>();
         }
@@ -82,7 +82,7 @@ namespace CleanArchitect.Tests.WebControllers
             mediatorMock.Setup(m => m.Send(It.IsAny<ProductDeleteCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(commandResutl);
 
             var productsController = new UseCases.Products.Delete.ProductsController(mediatorMock.Object);
-            var result = await productsController.Delete(_fixtrue.Create<long>());
+            var result = await productsController.Delete(_fixtrue.Create<long>(), _fixtrue.Create<CancellationToken>());
 
             result.Should().BeOfType<NoContentResult>();
         }
@@ -97,7 +97,7 @@ namespace CleanArchitect.Tests.WebControllers
             mediatorMock.Setup(m => m.Send(It.IsAny<ProductEditCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(commandResutl);
 
             var productsController = new UseCases.Products.Edit.ProductsController(mediatorMock.Object);
-            var result = await productsController.Edit(_fixtrue.Create<long>(), _fixtrue.Create<ProductEditRequest>());
+            var result = await productsController.Edit(_fixtrue.Create<long>(), _fixtrue.Create<ProductEditRequest>(), _fixtrue.Create<CancellationToken>());
 
             result.Should().BeOfType<NotFoundResult>();
         }
@@ -111,7 +111,7 @@ namespace CleanArchitect.Tests.WebControllers
             mediatorMock.Setup(m => m.Send(It.IsAny<ProductEditCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(commandResutl);
 
             var productsController = new UseCases.Products.Edit.ProductsController(mediatorMock.Object);
-            var result = await productsController.Edit(_fixtrue.Create<long>(), _fixtrue.Create<ProductEditRequest>());
+            var result = await productsController.Edit(_fixtrue.Create<long>(), _fixtrue.Create<ProductEditRequest>(), _fixtrue.Create<CancellationToken>());
 
             result.Should().BeOfType<NoContentResult>();
         }

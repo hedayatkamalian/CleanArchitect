@@ -19,7 +19,8 @@ namespace CleanArchitect.Infrastructure.EFCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Order>().OwnsOne(p => p.Address);
+            modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+
         }
     }
 }
